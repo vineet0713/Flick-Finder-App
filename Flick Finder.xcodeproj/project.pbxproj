@@ -14,7 +14,9 @@
 		650D97D1201D34500076BB02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650D97CF201D34500076BB02 /* LaunchScreen.storyboard */; };
 		650D97DC201D34500076BB02 /* Flick_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97DB201D34500076BB02 /* Flick_FinderTests.swift */; };
 		650D97E7201D34500076BB02 /* Flick_FinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97E6201D34500076BB02 /* Flick_FinderUITests.swift */; };
-		650D97F6201D3B950076BB02 /* KeyboardNotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97F5201D3B950076BB02 /* KeyboardNotificationExtension.swift */; };
+		650D97FA201D4A4B0076BB02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97F9201D4A4B0076BB02 /* Constants.swift */; };
+		650D97FC201D4A6A0076BB02 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97FB201D4A6A0076BB02 /* GCDBlackBox.swift */; };
+		650D97FE201D77D50076BB02 /* KeyboardNotificationsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97FD201D77D50076BB02 /* KeyboardNotificationsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,9 @@
 		650D97E2201D34500076BB02 /* Flick FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flick FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		650D97E6201D34500076BB02 /* Flick_FinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flick_FinderUITests.swift; sourceTree = "<group>"; };
 		650D97E8201D34500076BB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		650D97F5201D3B950076BB02 /* KeyboardNotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationExtension.swift; sourceTree = "<group>"; };
+		650D97F9201D4A4B0076BB02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		650D97FB201D4A6A0076BB02 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		650D97FD201D77D50076BB02 /* KeyboardNotificationsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotificationsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				650D97C6201D34500076BB02 /* AppDelegate.swift */,
 				650D97C8201D34500076BB02 /* ViewController.swift */,
-				650D97F5201D3B950076BB02 /* KeyboardNotificationExtension.swift */,
+				650D97FD201D77D50076BB02 /* KeyboardNotificationsExtension.swift */,
+				650D97F9201D4A4B0076BB02 /* Constants.swift */,
+				650D97FB201D4A6A0076BB02 /* GCDBlackBox.swift */,
 				650D97CA201D34500076BB02 /* Main.storyboard */,
 				650D97CD201D34500076BB02 /* Assets.xcassets */,
 				650D97CF201D34500076BB02 /* LaunchScreen.storyboard */,
@@ -264,7 +270,9 @@
 			files = (
 				650D97C9201D34500076BB02 /* ViewController.swift in Sources */,
 				650D97C7201D34500076BB02 /* AppDelegate.swift in Sources */,
-				650D97F6201D3B950076BB02 /* KeyboardNotificationExtension.swift in Sources */,
+				650D97FA201D4A4B0076BB02 /* Constants.swift in Sources */,
+				650D97FE201D77D50076BB02 /* KeyboardNotificationsExtension.swift in Sources */,
+				650D97FC201D4A6A0076BB02 /* GCDBlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

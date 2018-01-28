@@ -1,5 +1,5 @@
 //
-//  KeyboardNotificationExtension.swift
+//  KeyboardNotificationsExtension.swift
 //  Flick Finder
 //
 //  Created by Vineet Joshi on 1/27/18.
