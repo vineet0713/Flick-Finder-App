@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FinderViewController.swift
 //  Flick Finder
 //
 //  Created by Vineet Joshi on 1/27/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class FinderViewController: UIViewController, UITextFieldDelegate {
     
     let SEARCH_MSG = "Please enter a search phrase or coordinates for both latitude and longitude."
     let COORDINATES_MSG = "Please enter a valid latitude [-90, 90] and a valid longitude [-180, 180]."
@@ -112,7 +112,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        displayImageFromFlickr(methodParameters)
+        displayImageFromFlickr(methodParameters, with: nil)
     }
     
     func getBBoxString(latitude: Double, longitude: Double) -> String {
@@ -148,8 +148,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Flickr API
     
-    func displayImageFromFlickr(_ methodParameters: [String:Any]) {
-        print(flickrURLFromParameters(methodParameters))
+    func displayImageFromFlickr(_ methodParameters: [String:Any], with pageNumber: Int?) {
+        if pageNumber != nil {
+            var methodParametersWithPage = methodParameters
+            methodParametersWithPage[Constants.FlickrParameterKeys.Page] = pageNumber
+        }
         
         // make a request to Flickr
         let session = URLSession.shared
@@ -191,48 +194,60 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            guard let photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String:Any]] else {
-                print("Could not find key \(Constants.FlickrResponseKeys.Photo).")
-                return
-            }
-            
-            if photoArray.count == 0 {
-                performUIUpdatesOnMain {
-                    self.flickImageView.image = nil
-                    self.infoLabel.text = ""
+            if pageNumber == nil {
+                guard let pages = photosDictionary[Constants.FlickrResponseKeys.Pages] as? Int else {
+                    print("Could not find key \(Constants.FlickrResponseKeys.Pages).")
+                    return
                 }
-                self.displayAlert(title: "No Photos Found", message: self.PHOTO_MSG)
-                return
-            }
-            
-            // makes sure that the newly displayed image will be different than current one:
-            var randomPhotoIndex = self.currentImageIndex
-            while randomPhotoIndex == self.currentImageIndex {
-                randomPhotoIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
-            }
-            self.currentImageIndex = randomPhotoIndex
-            
-            let photoDictionary = photoArray[randomPhotoIndex]
-            
-            guard let imageURLString = photoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
-                print("Could not find key \(Constants.FlickrResponseKeys.MediumURL).")
-                return
-            }
-            
-            guard let imageTitleString = photoDictionary[Constants.FlickrResponseKeys.Title] as? String else {
-                print("Could not find key \(Constants.FlickrResponseKeys.Title).")
-                return
-            }
-            
-            let imageURL = URL(string: imageURLString)!
-            guard let imageData = try? Data(contentsOf: imageURL) else {
-                print("Could not get image data.")
-                return
-            }
-            
-            performUIUpdatesOnMain {
-                self.flickImageView.image = UIImage(data: imageData)
-                self.infoLabel.text = imageTitleString
+                
+                // because Twitter's API only allows us to choose from the first 40 pages:
+                let truncatedPages = min(pages, 40)
+                let randomPage = Int(arc4random_uniform(UInt32(truncatedPages)))
+                self.displayImageFromFlickr(methodParameters, with: randomPage)
+            } else {
+                guard let photoArray = photosDictionary[Constants.FlickrResponseKeys.Photo] as? [[String:Any]] else {
+                    print("Could not find key \(Constants.FlickrResponseKeys.Photo).")
+                    return
+                }
+                
+                if photoArray.count == 0 {
+                    performUIUpdatesOnMain {
+                        self.flickImageView.image = nil
+                        self.infoLabel.text = ""
+                    }
+                    self.displayAlert(title: "No Photos Found", message: self.PHOTO_MSG)
+                    return
+                }
+                
+                // makes sure that the newly displayed image will be different than current one:
+                var randomPhotoIndex = self.currentImageIndex
+                while randomPhotoIndex == self.currentImageIndex {
+                    randomPhotoIndex = Int(arc4random_uniform(UInt32(photoArray.count)))
+                }
+                self.currentImageIndex = randomPhotoIndex
+                
+                let photoDictionary = photoArray[randomPhotoIndex]
+                
+                guard let imageURLString = photoDictionary[Constants.FlickrResponseKeys.MediumURL] as? String else {
+                    print("Could not find key \(Constants.FlickrResponseKeys.MediumURL).")
+                    return
+                }
+                
+                guard let imageTitleString = photoDictionary[Constants.FlickrResponseKeys.Title] as? String else {
+                    print("Could not find key \(Constants.FlickrResponseKeys.Title).")
+                    return
+                }
+                
+                let imageURL = URL(string: imageURLString)!
+                guard let imageData = try? Data(contentsOf: imageURL) else {
+                    print("Could not get image data.")
+                    return
+                }
+                
+                performUIUpdatesOnMain {
+                    self.flickImageView.image = UIImage(data: imageData)
+                    self.infoLabel.text = imageTitleString
+                }
             }
         }
         

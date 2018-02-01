@@ -35,7 +35,7 @@ struct Constants {
         static let Format = "format"
         static let NoJSONCallback = "nojsoncallback"
         // static let GalleryID = "gallery_id"
-        // static let Page = "page"
+        static let Page = "page"
         static let orderedValues = [Method, APIKey, Text, BoundingBox, SafeSearch, Extras, Format, NoJSONCallback]
     }
     

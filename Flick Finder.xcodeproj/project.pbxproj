@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		650D97C7201D34500076BB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97C6201D34500076BB02 /* AppDelegate.swift */; };
-		650D97C9201D34500076BB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97C8201D34500076BB02 /* ViewController.swift */; };
+		650D97C9201D34500076BB02 /* FinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650D97C8201D34500076BB02 /* FinderViewController.swift */; };
 		650D97CC201D34500076BB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650D97CA201D34500076BB02 /* Main.storyboard */; };
 		650D97CE201D34500076BB02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650D97CD201D34500076BB02 /* Assets.xcassets */; };
 		650D97D1201D34500076BB02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650D97CF201D34500076BB02 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		650D97C3201D34500076BB02 /* Flick Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flick Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		650D97C6201D34500076BB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		650D97C8201D34500076BB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		650D97C8201D34500076BB02 /* FinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderViewController.swift; sourceTree = "<group>"; };
 		650D97CB201D34500076BB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		650D97CD201D34500076BB02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		650D97D0201D34500076BB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				650D97C6201D34500076BB02 /* AppDelegate.swift */,
-				650D97C8201D34500076BB02 /* ViewController.swift */,
+				650D97C8201D34500076BB02 /* FinderViewController.swift */,
 				650D97FD201D77D50076BB02 /* KeyboardNotificationsExtension.swift */,
 				650D97F9201D4A4B0076BB02 /* Constants.swift */,
 				650D97FB201D4A6A0076BB02 /* GCDBlackBox.swift */,
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				650D97C9201D34500076BB02 /* ViewController.swift in Sources */,
+				650D97C9201D34500076BB02 /* FinderViewController.swift in Sources */,
 				650D97C7201D34500076BB02 /* AppDelegate.swift in Sources */,
 				650D97FA201D4A4B0076BB02 /* Constants.swift in Sources */,
 				650D97FE201D77D50076BB02 /* KeyboardNotificationsExtension.swift in Sources */,
